@@ -385,7 +385,7 @@ void signalHandlerz(int sig_num) {
 	fflush(stdout);
 }
 
-int main() {
+int run_fn() {
 	pid_t Mpid = getpid();
 	char *input = malloc(1000*sizeof(char));
 	char *input2=malloc(1000*sizeof(char));
@@ -511,8 +511,8 @@ int main() {
 						FILE *fd;
 						fd = fopen(addr, "r");
 						fscanf(fd, "%s", text);
-    				fscanf(fd, "%s", text);
-    				fscanf(fd, "%s", text);
+						fscanf(fd, "%s", text);
+						fscanf(fd, "%s", text);
 						if (text[0] == 'R') {sprintf(text, "Running");}
 						else if (text[0] == 'S') {sprintf(text, "Stopped");}
 						printf("[%d] %s %s [%d]\n",i+1, job[i].name, text, job[i].pid);
@@ -642,5 +642,10 @@ int main() {
 			exit(16);
 		}
 	}
-  return 0;
+	return 0;
+}
+
+int main() {
+	run_fn();
+	return 0;
 }
